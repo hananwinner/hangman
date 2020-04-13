@@ -1,0 +1,1173 @@
+{
+	"info": {
+		"_postman_id": "cc238457-74db-4d0d-8c73-ade4cc1b1a08",
+		"name": "Hangman API",
+		"description": "Hangman API\n\nContact Support:\n Email: hanan888@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "game",
+			"item": [
+				{
+					"name": "{game id}",
+					"item": [
+						{
+							"name": "Get Game 1 Status",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Get the game status, a row of underscores and letters, and the letters that already missed\n"
+							},
+							"response": [
+								{
+									"name": "The Game Status",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+								},
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Get Game 2 Status",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Get the game status, a row of underscores and letters, and the letters that already missed\n"
+							},
+							"response": [
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "The Game Status",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+								},
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Guess a letter 1",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"query": [
+										{
+											"key": "letter",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Guess a letter in the game. if the game exists, returns the status of the game after the word."
+							},
+							"response": [
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "The guess was played successfully, returning the new status, it is possible that you lost or won.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Guess a letter 2",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"query": [
+										{
+											"key": "letter",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Guess a letter in the game. if the game exists, returns the status of the game after the word."
+							},
+							"response": [
+								{
+									"name": "The guess was played successfully, returning the new status, it is possible that you lost or won.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+								},
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id?letter=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"query": [
+												{
+													"key": "letter",
+													"value": "<string>"
+												}
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Cancel  game 1",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Cancel the game"
+							},
+							"response": [
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "Game Cancelled Successfully",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Cancel  game 2",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game/:game_id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game",
+										":game_id"
+									],
+									"variable": [
+										{
+											"key": "game_id",
+											"value": "<string>",
+											"description": "(Required) game id"
+										}
+									]
+								},
+								"description": "Cancel the game"
+							},
+							"response": [
+								{
+									"name": "An unexpected error occured.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+								},
+								{
+									"name": "Game not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Game Cancelled Successfully",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/game/:game_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"game",
+												":game_id"
+											],
+											"variable": [
+												{
+													"key": "game_id"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create game 1",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/game",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game"
+							]
+						},
+						"description": "Create a new game. Returns the new game status, a row of underscores, and empty list for the letters that already missed\n"
+					},
+					"response": [
+						{
+							"name": "The New Game Status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+						},
+						{
+							"name": "An unexpected error occured.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create game 2",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/game",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"game"
+							]
+						},
+						"description": "Create a new game. Returns the new game status, a row of underscores, and empty list for the letters that already missed\n"
+					},
+					"response": [
+						{
+							"name": "The New Game Status",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"result\": \"result\",\n \"guess_status\": \"guess_status\",\n \"missed\": [\n  \"missed\",\n  \"missed\"\n ],\n \"game_id\": \"game_id\"\n}"
+						},
+						{
+							"name": "An unexpected error occured.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/game",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"game"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Admin Change Number of game fail attempts",
+			"request": {
+				"auth": {
+					"type": "basic"
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/admin/change_fail_attempts?num_fail_attempts=<integer>",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"admin",
+						"change_fail_attempts"
+					],
+					"query": [
+						{
+							"key": "num_fail_attempts",
+							"value": "<integer>",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "Change the number of fail attempts allowed globally to all new games after the change"
+			},
+			"response": [
+				{
+					"name": "Admin Changed the number of fail attempts successfully",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/change_fail_attempts?num_fail_attempts=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"change_fail_attempts"
+							],
+							"query": [
+								{
+									"key": "num_fail_attempts",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "An unexpected error occured.",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/change_fail_attempts?num_fail_attempts=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"change_fail_attempts"
+							],
+							"query": [
+								{
+									"key": "num_fail_attempts",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n \"code\": \"<string>\",\n \"message\": \"<string>\"\n}"
+				},
+				{
+					"name": "Authentication information is missing or invalid",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/admin/change_fail_attempts?num_fail_attempts=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"admin",
+								"change_fail_attempts"
+							],
+							"query": [
+								{
+									"key": "num_fail_attempts",
+									"value": "<integer>"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "WWW_Authenticate",
+							"value": "<string>",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "320c6ee9-ebf7-4c3b-8066-14eeb04985f5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "69103752-b40e-4189-9081-54d0d0e04f26",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "174070c2-9c88-4235-a48a-d8a059abf171",
+			"key": "baseUrl",
+			"value": "https://virtserver.swaggerhub.com/hanan8885/Hangman/1.0.0",
+			"type": "string"
+		},
+		{
+			"id": "ac1b9362-139e-47b9-9f8e-1754bba51813",
+			"key": "game_id",
+			"value": "a703ab15-5b38-41c6-b70c-0012f9838a54",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
