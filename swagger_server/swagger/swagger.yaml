@@ -1,0 +1,233 @@
+openapi: 3.0.0
+info:
+  title: Hangman API
+  description: Hangman API
+  contact:
+    email: hanan888@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/hanan8885/Hangman/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: admins
+  description: Secured Admin-only calls
+- name: developers
+  description: Operations available to regular developers
+paths:
+  /game:
+    post:
+      tags:
+      - developers
+      summary: Create New Game
+      description: |
+        Create a new game. Returns the new game status, a row of underscores, and empty list for the letters that already missed
+      operationId: new_game
+      responses:
+        "200":
+          description: The New Game Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        "500":
+          description: An unexpected error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-openapi-router-controller: swagger_server.controllers.developers_controller
+  /game/{game_id}:
+    get:
+      tags:
+      - developers
+      summary: Get Game Status
+      description: |
+        Get the game status, a row of underscores and letters, and the letters that already missed
+      operationId: get_game
+      parameters:
+      - name: game_id
+        in: path
+        description: game id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: The Game Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        "404":
+          description: Game not found
+        "500":
+          description: An unexpected error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-openapi-router-controller: swagger_server.controllers.developers_controller
+    post:
+      tags:
+      - developers
+      summary: Guess a letter
+      description: Guess a letter in the game. if the game exists, returns the status
+        of the game after the word.
+      operationId: guess_letter
+      parameters:
+      - name: game_id
+        in: path
+        description: game id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: letter
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          maxLength: 1
+          minLength: 1
+          type: string
+      responses:
+        "200":
+          description: The guess was played successfully, returning the new status,
+            it is possible that you lost or won.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+        "404":
+          description: Game not found
+        "500":
+          description: An unexpected error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-openapi-router-controller: swagger_server.controllers.developers_controller
+    delete:
+      tags:
+      - developers
+      summary: Cancel the game
+      description: Cancel the game
+      operationId: cancel_game
+      parameters:
+      - name: game_id
+        in: path
+        description: game id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Game Cancelled Successfully
+        "404":
+          description: Game not found
+        "500":
+          description: An unexpected error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-openapi-router-controller: swagger_server.controllers.developers_controller
+  /admin/change_fail_attempts:
+    put:
+      tags:
+      - admins
+      summary: Admin Change Number of game fail attempts
+      description: Change the number of fail attempts allowed globally to all new
+        games after the change
+      operationId: admin_change_fail_attempts
+      parameters:
+      - name: num_fail_attempts
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          maximum: 100
+          minimum: 1
+          type: integer
+      responses:
+        "204":
+          description: Admin Changed the number of fail attempts successfully
+        "401":
+          description: Authentication information is missing or invalid
+          headers:
+            WWW_Authenticate:
+              style: simple
+              explode: false
+              schema:
+                type: string
+        "500":
+          description: An unexpected error occured.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - basicAuth: []
+      x-openapi-router-controller: swagger_server.controllers.admins_controller
+components:
+  schemas:
+    Game:
+      required:
+      - game_id
+      - guess_status
+      - missed
+      properties:
+        game_id:
+          type: string
+        result:
+          type: string
+        guess_status:
+          type: string
+        missed:
+          type: array
+          items:
+            type: string
+      example:
+        result: result
+        guess_status: guess_status
+        missed:
+        - missed
+        - missed
+        game_id: game_id
+    Error:
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+  responses:
+    UnauthorizedError:
+      description: Authentication information is missing or invalid
+      headers:
+        WWW_Authenticate:
+          style: simple
+          explode: false
+          schema:
+            type: string
+    Standard500ErrorResponse:
+      description: An unexpected error occured.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      x-basicInfoFunc: swagger_server.controllers.authorization_controller.check_basicAuth
+
